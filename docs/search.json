@@ -46,7 +46,10 @@
     "href": "assignments/assignment-1.html",
     "title": "Assignment 1",
     "section": "",
-    "text": "1 + 1\n\n[1] 2\n\n\nMy first assignment has two parts."
+    "text": "1 + 1\n\n[1] 2\n\n\nMy first assignment has two parts.\n\n\n\n\n\nlibrary(dslabs)\ndata(“polls_us_election_2016”)\nhead(polls_us_election_2016, 10)\nsum(is.na(polls_us_election_2016))\nnumeric_cols &lt;- sapply(polls_us_election_2016, is.numeric)\npolls_us_election_2016[, numeric_cols] &lt;- lapply(polls_us_election_2016[, numeric_cols], function(x) { replace(x, is.na(x), 2001) }) factor_cols &lt;- sapply(polls_us_election_2016, is.factor)\npolls_us_election_2016[, factor_cols] &lt;- lapply(polls_us_election_2016[, factor_cols], function(x) { x &lt;- as.character(x) x &lt;- replace(x, is.na(x), “Omer”) as.factor(x) })\npollsnew &lt;- data.frame(polls_us_election_2016) head(pollsnew, 10) sum(is.na(pollsnew))",
+    "crumbs": [
+      "Assignment 1"
+    ]
   },
   {
     "objectID": "assignments.html",
@@ -61,5 +64,15 @@
     "title": "My Blog",
     "section": "",
     "text": "This page is under construction.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#b",
+    "href": "assignments/assignment-1.html#b",
+    "title": "Assignment 1",
+    "section": "",
+    "text": "library(dslabs)\ndata(“polls_us_election_2016”)\nhead(polls_us_election_2016, 10)\nsum(is.na(polls_us_election_2016))\nnumeric_cols &lt;- sapply(polls_us_election_2016, is.numeric)\npolls_us_election_2016[, numeric_cols] &lt;- lapply(polls_us_election_2016[, numeric_cols], function(x) { replace(x, is.na(x), 2001) }) factor_cols &lt;- sapply(polls_us_election_2016, is.factor)\npolls_us_election_2016[, factor_cols] &lt;- lapply(polls_us_election_2016[, factor_cols], function(x) { x &lt;- as.character(x) x &lt;- replace(x, is.na(x), “Omer”) as.factor(x) })\npollsnew &lt;- data.frame(polls_us_election_2016) head(pollsnew, 10) sum(is.na(pollsnew))",
+    "crumbs": [
+      "Assignment 1"
+    ]
   }
 ]
