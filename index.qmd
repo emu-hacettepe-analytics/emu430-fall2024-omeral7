@@ -3,7 +3,7 @@ title: "Welcome to My Analytics Lab"
 sidebar: false 
 ---
 
-Hello! My name is ??mer Meral.
+Hello! My name is Omer Meral.
 
 This is my personal webpage.
 
