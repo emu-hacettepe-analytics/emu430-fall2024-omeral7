@@ -13,3 +13,19 @@ My first assignment has two parts.
 ## (a)
 
 ## (b)
+
+library(dslabs)
+
+data("polls_us_election_2016")
+
+head(polls_us_election_2016, 10)
+
+sum(is.na(polls_us_election_2016))
+
+numeric_cols \<- sapply(polls_us_election_2016, is.numeric)
+
+polls_us_election_2016\[, numeric_cols\] \<- lapply(polls_us_election_2016\[, numeric_cols\], function(x) { replace(x, is.na(x), 2001) }) factor_cols \<- sapply(polls_us_election_2016, is.factor)
+
+polls_us_election_2016\[, factor_cols\] \<- lapply(polls_us_election_2016\[, factor_cols\], function(x) { x \<- as.character(x) x \<- replace(x, is.na(x), "Omer") as.factor(x) })
+
+pollsnew \<- data.frame(polls_us_election_2016) head(pollsnew, 10) sum(is.na(pollsnew))
