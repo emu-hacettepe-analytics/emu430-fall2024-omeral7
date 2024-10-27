@@ -4,16 +4,39 @@ title: "Assignment 1"
 
 # Assignment 1
 
-```{r}
-1 + 1
-```
-
 My first assignment has two parts.
 
 ## (a)
 
+Summary:
+
+Baykal Hafızoğlu and Erdi Daşdemir explore the interesting intersection between data science and industrial engineering. They start by discussing how data science is becoming important in various industries-from manufacturing to logistics-and apply to the process of making decisions with data to develop operational efficiencies. They explain big data, machine learning, and data analysis that are vital for process optimization to reduce errors and increase performance.
+
+They also go on to discuss practical tools and programming languages used with data, such as Python and R, and help explain the way these skills apply in real contexts. They offer sound advice to budding data scientists on necessary competencies such as continuous learning, technical competencies, and analytical thinking. The presentation ends with giving out real-life case studies illustrating how applications of data science will solve complex industrial problems and improve business results.
+
+Questions:
+
+1\) According to the video, what skills and knowledge are necessary for those starting a career in data science?
+
+Answer:
+
+A person entering data science should know what programming languages to use, such as Python and R; they also should have knowledge of data analysis or at least the basics of machine learning. Besides all this, one should be able to read and interpret data analysis with the ability to apply it within a business to see efficiencies.
+
+2\) What is the contribution of data-driven decision-making in data science and industrial engineering?
+
+A)  Increases labor costs.
+
+B)  Improves performance and boosts efficiency.
+
+C)  Decreases the importance of data scientists.
+
+D)  Is only beneficial for small companies.
+
+    Answer: B) Improves performance and boosts efficiency.
+
 ## (b)
 
+```{r}
 library(dslabs)
 
 data("polls_us_election_2016")
@@ -22,10 +45,21 @@ head(polls_us_election_2016, 10)
 
 sum(is.na(polls_us_election_2016))
 
-numeric_cols \<- sapply(polls_us_election_2016, is.numeric)
+numeric_cols <- sapply(polls_us_election_2016, is.numeric)
+#I took help from AI in the following section---
+polls_us_election_2016[, numeric_cols] <- lapply(polls_us_election_2016[, numeric_cols], function(x) {
+  replace(x, is.na(x), 2001)
+})
+factor_cols <- sapply(polls_us_election_2016, is.factor)
 
-polls_us_election_2016\[, numeric_cols\] \<- lapply(polls_us_election_2016\[, numeric_cols\], function(x) { replace(x, is.na(x), 2001) }) factor_cols \<- sapply(polls_us_election_2016, is.factor)
+polls_us_election_2016[, factor_cols] <- lapply(polls_us_election_2016[, factor_cols], function(x) {
+  x <- as.character(x)
+  x <- replace(x, is.na(x), "Omer")
+  as.factor(x)
+})
+#----
+pollsnew <- data.frame(polls_us_election_2016)
+head(pollsnew, 10)
+sum(is.na(pollsnew))
 
-polls_us_election_2016\[, factor_cols\] \<- lapply(polls_us_election_2016\[, factor_cols\], function(x) { x \<- as.character(x) x \<- replace(x, is.na(x), "Omer") as.factor(x) })
-
-pollsnew \<- data.frame(polls_us_election_2016) head(pollsnew, 10) sum(is.na(pollsnew))
+```
